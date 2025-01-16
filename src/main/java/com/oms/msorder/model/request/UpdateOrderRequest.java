@@ -7,7 +7,7 @@ import lombok.Data;
 public class UpdateOrderRequest {
 
     private Long customerId;
-    private Long itemId;
+    private Long productId;
     private OrderStatusType orderStatus;
 
 }

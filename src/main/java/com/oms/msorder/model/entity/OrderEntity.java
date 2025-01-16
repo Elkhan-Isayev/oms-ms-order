@@ -10,6 +10,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,7 +26,9 @@ public class OrderEntity {
 
     private Long customerId;
 
-    private Long itemId;
+    private Long productId;
+
+    private String trackingId;
 
     @Enumerated(EnumType.STRING)
     private OrderStatusType orderStatus;
@@ -35,5 +38,12 @@ public class OrderEntity {
 
     @UpdateTimestamp
     private LocalDateTime updatedAt;
+
+    @PrePersist
+    public void generateTrackingId() {
+        if (this.trackingId == null) {
+            this.trackingId = UUID.randomUUID().toString();
+        }
+    }
 
 }

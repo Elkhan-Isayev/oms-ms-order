@@ -10,7 +10,8 @@ public class OrderResponse {
 
     private Long id;
     private Long customerId;
-    private Long itemId;
+    private Long productId;
+    private String trackingId;
     private OrderStatusType orderStatus;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;

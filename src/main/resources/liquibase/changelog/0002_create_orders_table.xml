@@ -14,7 +14,10 @@
             <column name="customer_id" type="BIGINT">
                 <constraints nullable="false" />
             </column>
-            <column name="item_id" type="BIGINT">
+            <column name="product_id" type="BIGINT">
+                <constraints nullable="false" />
+            </column>
+            <column name="tracking_id" type="VARCHAR(50)">
                 <constraints nullable="false" />
             </column>
             <column name="order_status" type="VARCHAR(50)">
