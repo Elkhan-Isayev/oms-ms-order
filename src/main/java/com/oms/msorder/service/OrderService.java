@@ -28,7 +28,7 @@ public class OrderService {
                 .collect(Collectors.toList());
 
         if (orders.isEmpty()) {
-            throw new NotFoundException(String.format("service.getAll page = %s and size = %s", page, size));
+            throw new NotFoundException(String.format("OrderService.getAll page = %s and size = %s", page, size));
         }
 
         return orderMapper.mapToOrderResponseList(orders);
@@ -48,7 +48,7 @@ public class OrderService {
 
     public void delete(Long id) {
         if (!orderRepository.existsById(id)) {
-            throw new NotFoundException(String.format("service.delete id = %s", id));
+            throw new NotFoundException(String.format("OrderService.delete id = %s", id));
         }
 
         orderRepository.deleteById(id);
@@ -57,7 +57,7 @@ public class OrderService {
     public OrderResponse update(Long id, UpdateOrderRequest updateOrderRequest) {
 
         var order = orderRepository.findById(id).orElseThrow(
-                () -> new NotFoundException(String.format("service.update id = %s", id)));
+                () -> new NotFoundException(String.format("OrderService.update id = %s", id)));
 
         orderMapper.mapUpdateRequestToOrderEntity(order, updateOrderRequest);
 
